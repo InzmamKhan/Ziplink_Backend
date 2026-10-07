@@ -1,75 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.5</version> <!-- Fixed: Replaced non-existent 4.1.1 version with current Spring Boot 3.x -->
+        <version>3.2.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.github.InzmamKhan</groupId>
-    <artifactId>Ziplink_Backend</artifactId>
+
+    <groupId>com.github.inzmamkhan</groupId>
+    <artifactId>ziplink_backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Ziplink_Backend</name>
-    <description>Ziplink_Backend</description>
-    <url/>
-    <licenses>
-        <license/>
-    </licenses>
-    <developers>
-        <developer/>
-    </developers>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
+    <name>ziplink-backend</name>
+    <description>Production-grade URL Shortener Backend for ZipLink.io</description>
+
     <properties>
         <java.version>21</java.version>
     </properties>
-    <dependencies>
-        <!-- 1. Lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
 
-        <!-- 2. Spring Web (Fixed from invalid spring-boot-starter-webmvc) -->
+    <dependencies>
+        <!-- Spring Boot Web Starter for REST APIs -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- 3. Spring Data JPA -->
+        <!-- Spring Data JPA for PostgreSQL ORM -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- 4. PostgreSQL Driver -->
+        <!-- Spring Data Redis for Caching and Rate Limiting -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- PostgreSQL JDBC Driver -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- 5 & 6. Spring Data Redis (Provides RedisTemplate + default Lettuce driver) -->
+        <!-- Lombok for Boilerplate Reduction -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
 
-        <!-- 7. Apache Commons Validator (Added missing 3rd-party library) -->
+        <!-- Apache Commons Validator for URL Validation -->
         <dependency>
             <groupId>commons-validator</groupId>
             <artifactId>commons-validator</artifactId>
             <version>1.8.0</version>
         </dependency>
 
-        <!-- Standard Spring Boot Test Suite (Replaced invalid test starters) -->
+        <!-- Spring Boot Test Starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -93,5 +85,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
